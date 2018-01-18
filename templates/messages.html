@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h3>{% trans 'Messages with' %} {{ to_user.username }}</h3>
+<div class="clearfix">
+    {% for message in message_list %}
+    <div class="card w-75 clearfix mb-2 {% if message.to_user == to_user %}bg-primary text-white float-right{% endif %}">
+        <div class="card-body">
+            <p class="card-text">{{ message.message }}</p>
+            <footer class="blockquote-footer">{{ message.created }}</footer>
+        </div>
+    </div>
+    {% empty %}
+    <p>{% trans 'No messages yet' %}!</p>
+    {% endfor %}
+</div>
+<h3>{% trans 'New message' %}</h3>
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form.message }}
+    <input type="submit" class="btn btn-primary btn-lg btn-block" value="{% trans 'Send' %}" />
+</form>
+{% endblock %}
