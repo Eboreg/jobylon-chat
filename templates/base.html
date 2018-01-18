@@ -14,7 +14,9 @@
     <div class="container">
       <div id="header">
         <h1 class="d-md-inline">Jobylon Chat by Klaatu</h1>
+        {% if user.is_authenticated %}
         <p class="d-md-inline"> - <a href="{% url 'logout' %}">{% trans 'Logout' %} {{ user.username }}</a></p>
+        {% endif %}
       </div>
       {% if messages %} 
       {% for message in messages %}

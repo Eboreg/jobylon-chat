@@ -27,7 +27,7 @@ DEBUG = True
 
 LOGIN_URL = '/login/'
 
-ALLOWED_HOSTS = ['klaatu', 'huseli.us']
+ALLOWED_HOSTS = ['klaatu', 'huseli.us', 'localhost', '127.0.0.1']
 
 
 # Application definition
